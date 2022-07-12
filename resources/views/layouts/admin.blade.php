@@ -46,7 +46,7 @@
             <a href="{{ route('admin.coins.index') }}">
               Mie Monete
             </a>
-            <a href="{{ route('admin.apartments.create') }}">
+            <a href="{{ route('admin.coins.create') }}">
               Aggiungi Moneta
             </a>
             <a href="http://127.0.0.1:8000/logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -93,7 +93,7 @@
                   id="dropdownUser1" aria-expanded="false">
                   {{-- <img src="{{ asset('img/logoBoolBnb.png') }}" alt="" width="32" height="32"
                     class="rounded-circle me-2"> --}}
-                    loho
+                    logo
                   <strong style="color:#03306D">{{ Auth::user()->name }}</strong>
                 </a>
                 <ul class="text-small shadow" aria-labelledby="dropdownUser1">

@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Storage;
+use App\Coin;
+use App\Address;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Prophecy\Call\Call;
+use App\Message;
 
 class CoinController extends Controller
 {
@@ -14,7 +20,8 @@ class CoinController extends Controller
      */
     public function index()
     {
-        //
+        $coins = Coin::where('user_id', Auth::user()->id)->get();
+        return view('admin.coins.index', ['coins' => $coins]);
     }
 
     /**
