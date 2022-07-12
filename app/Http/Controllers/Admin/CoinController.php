@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Coin;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CoinController extends Controller
@@ -41,10 +41,10 @@ class CoinController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Coin  $coin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Coin $coin)
+    public function show($id)
     {
         //
     }
@@ -52,10 +52,10 @@ class CoinController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Coin  $coin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Coin $coin)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +64,10 @@ class CoinController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Coin  $coin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Coin $coin)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +75,10 @@ class CoinController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Coin  $coin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Coin $coin)
+    public function destroy($id)
     {
         //
     }
