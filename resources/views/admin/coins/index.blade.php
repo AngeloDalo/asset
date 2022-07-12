@@ -20,6 +20,7 @@
                 <table class="table border border-danger text-center">
                     <thead>
                         <tr class="table-danger">
+                            <th>#</th>
                             <th>Codice</th>
                             <th>Ammontare</th>
                             <th>Prezzo Singolo</th>
@@ -37,20 +38,21 @@
                     <tbody>
                         @foreach ($coins as $coin)
                             <tr>
-                                <td>{{ $coins->codice }}</td>
-                                <td>{{ $coins->ammontare }}</td>
-                                <td>{{ $coins->prezzo_singolo }}&dollar;;</td>
                                 <td>TBA</td>
-                                <td>{{ $coins->apy }}</td>
+                                <td>{{ $coin->codice }}</td>
+                                <td>{{ $coin->ammontare }}</td>
+                                <td>{{ $coin->prezzo_singolo }}&dollar;;</td>
+                                <td>TBA</td>
+                                <td>{{ $coin->apy }}</td>
                                 <td>TBA</td>
                                 <td>TBA</td>
                                 <td>TBA</td>
                                 <td>TBA</td>
                                 <td><a class="btn btn-danger text-white"
-                                        href="{{ route('admin.coins.show', $coin->codice) }}">Vedi</a></td>
+                                        href="{{ route('admin.coins.show', $coin->id) }}">Vedi</a></td>
                                 <td>
                                     <a class="btn btn-danger text-white"
-                                        href="{{ route('admin.coins.edit', $coin->codice) }}">Modifica</a>
+                                        href="{{ route('admin.coins.edit', $coin->id) }}">Modifica</a>
                                 </td>
                                 <td>TBA</td>
                             </tr>
