@@ -38,15 +38,25 @@
                     <tbody>
                         @foreach ($coins as $coin)
                             <tr>
-                                <td>TBA</td>
+                                <td><img class="w-100 h-50 rounded-3" src="{{ asset('storage/' . $coin->immagine) }}"
+                                        alt="{{ $coin->codice }}"></td>
                                 <td>{{ $coin->codice }}</td>
                                 <td>{{ $coin->ammontare }}</td>
-                                <td>{{ $coin->prezzo_singolo }}&dollar;;</td>
-                                <td>TBA</td>
-                                <td>{{ $coin->apy }}</td>
-                                <td>TBA</td>
-                                <td>TBA</td>
-                                <td>TBA</td>
+                                <td>{{ $coin->prezzo_singolo }}&dollar;</td>
+                                <?php
+                                $totale = $coin->ammontare * $coin->prezzo_singolo;
+                                echo '<td>' . $totale . '$</td>';
+                                ?>
+                                <td>{{ $coin->apy }}%</td>
+                                <?php
+                                $totale = $coin->ammontare * $coin->prezzo_singolo;
+                                $guadagno_annuale = (($totale/100)*$coin->apy);
+                                $guadagno_mensile = $guadagno_annuale/12;
+                                $guadagno_giornaliero = $guadagno_annuale/365;
+                                echo "<td>" . round($guadagno_giornaliero, 2) . "$</td>";
+                                echo "<td>" . round($guadagno_mensile, 2) . "$</td>";
+                                echo "<td>" . round($guadagno_annuale, 2) . "$</td>";
+                                ?>
                                 <td>TBA</td>
                                 <td><a class="btn btn-danger text-white"
                                         href="{{ route('admin.coins.show', $coin->id) }}">Vedi</a></td>
@@ -54,7 +64,13 @@
                                     <a class="btn btn-danger text-white"
                                         href="{{ route('admin.coins.edit', $coin->id) }}">Modifica</a>
                                 </td>
-                                <td>TBA</td>
+                                <td>
+                                    <form action="{{ route('admin.coins.destroy', $coin) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input class="btn btn-danger text-white" type="submit" value="Elimina">
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

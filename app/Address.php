@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     protected $fillable = [
+        'user_id',
         'coin_id',
         'indirizzo',
         'portafoglio',
@@ -14,6 +15,11 @@ class Address extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     public function coin()
     {

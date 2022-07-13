@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Storage;
+use App\Coin;
+use App\Address;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Prophecy\Call\Call;
+use App\Message;
 
 class AddressController extends Controller
 {
@@ -14,7 +20,7 @@ class AddressController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -55,9 +61,12 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Address $address)
     {
-        //
+        if (Auth::user()->id != $address->user_id) {
+            return redirect()->route('admin.coins.index');
+        }
+        return view('admin.address.edit', ['address' => $address]);
     }
 
     /**
@@ -67,9 +76,30 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Address $address)
     {
-        //
+        $data = $request->all();
+        if (Auth::user()->id != $address->user_id) {
+            return redirect()->route('admin.coins.index');
+        }
+        $validateData = $request->validate([
+            'portafoglio' => 'required|max:255',
+            'indirizzo' => 'required',
+            'immagine' => 'required',
+        ]);
+        if ($data['portafoglio'] != $address->portafoglio) {
+            $address->portafoglio = $data['portafoglio'];
+        }
+        if ($data['indirizzo'] != $address->indirizzo) {
+            $address->indirizzo = $data['indirizzo'];
+        }
+        if (!empty($data['immagine'])) {
+            Storage::delete($address->immagine);
+            $img_path = Storage::put('uploads', $data['immagine']);
+            $address->immagine = $img_path;
+        }
+        $address->update();
+        return redirect()->route('admin.coins.show', $address->coin_id);
     }
 
     /**
@@ -78,8 +108,11 @@ class AddressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Address $address)
     {
-        //
+        {
+            $address->delete();
+            return redirect()->route('admin.coins.show', $address->coin_id)->with('status', "Indirizzo nome: $address->portafoglio cancellato");
+        }
     }
 }

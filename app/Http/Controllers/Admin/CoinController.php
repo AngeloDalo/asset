@@ -74,8 +74,10 @@ class CoinController extends Controller
         if (Auth::user()->id != $coin->user_id) {
             return redirect()->route('admin.coins.index');
         }
+        $id = $coin->id;
+        $addresses = Address::where('coin_id', $id)->get();
         //mettere indirizzi
-        return view('admin.coins.show', ['coin' => $coin]);
+        return view('admin.coins.show', ['coin' => $coin, 'addresses' => $addresses]);
     }
 
     /**
@@ -141,7 +143,7 @@ class CoinController extends Controller
     {
         {
             $coin->delete();
-            return redirect()->route('coins.index')->with('status', "Asset nome: $asset->codice cancellato");
+            return redirect()->route('admin.coins.index')->with('status', "Coin nome: $coin->codice cancellato");
         }
     }
 }

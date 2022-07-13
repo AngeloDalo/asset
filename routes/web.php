@@ -26,6 +26,7 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('coins', 'CoinController');
+        Route::resource('address', 'AddressController');
     });
 
 Route::get('{any?}', function ($name = null) {

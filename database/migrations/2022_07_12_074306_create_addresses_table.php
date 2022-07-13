@@ -17,6 +17,8 @@ class CreateAddressesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('coin_id')->nullable();
             $table->foreign('coin_id')->references('id')->on('coins')->onDelete('set null');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
             $table->string('indirizzo');
             $table->string('portafoglio');
             $table->string('immagine');
