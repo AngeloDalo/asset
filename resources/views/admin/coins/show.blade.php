@@ -33,18 +33,17 @@
                 <div class="row mb-3">
                     <div class="col-3"><span>PORTAFOGLIO: {{ $address->portafoglio }}</span></div>
                     <div class="col-3"><span>INDIRIZZO: {{ $address->indirizzo }}</span></div>
-                    <div class="col-3"> <a class="btn btn-danger text-white"
-                            href="{{ route('admin.address.edit', $address->id) }}">Modifica</a></div>
-                    <div class="col-3"> <a class="btn btn-danger text-white" href="{{ route('admin.coins.index') }}">
+                    <div class="col-3"> <a class="btn btn-danger text-white" href="{{ route('admin.address.edit', $address->id) }}">Modifica</a></div>
+                    <div class="col-3">
                             <form action="{{ route('admin.address.destroy', $address) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <input class="btn btn-danger text-white" type="submit" value="Elimina">
                             </form>
-                        </a></div>
+                    </div>
                 </div>
             @endforeach
-            <a class="btn btn-danger mt-5 text-white" href="{{ route('admin.coins.index') }}">Aggiungi Indirizzo
+            <a class="btn btn-danger mt-5 text-white" href="{{ route('admin.address.create', $coin->id) }}">Aggiungi Indirizzo
                 {{ $coin->codice }}</a>
         </div>
 

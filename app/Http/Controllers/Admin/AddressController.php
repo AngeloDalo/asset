@@ -30,7 +30,8 @@ class AddressController extends Controller
      */
     public function create()
     {
-        //
+        $coins = Coin::where('user_id', Auth::user()->id)->get();
+        return view('admin.address.create', ['coins' => $coins]);
     }
 
     /**
@@ -41,7 +42,24 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        $data['coin_id'] = $data['coins'][0];
+        $validateData = $request->validate([
+            'portafoglio' => 'required|max:255',
+            'indirizzo' => 'required',
+            'immagine' => 'required',
+        ]);
+        if (!empty($data['immagine'])) {
+            $img_path = Storage::put('uploads', $data['immagine']);
+            $data['immagine'] = $img_path;
+        } else {
+            $data['immagine'] = 'uploads/default.jpg';
+        }
+        $address = new Address();
+        $address->fill($data);
+        $address->save();
+        return redirect()->route('admin.coins.show', $address->coin_id);
     }
 
     /**

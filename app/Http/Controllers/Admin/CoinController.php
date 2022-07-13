@@ -75,7 +75,7 @@ class CoinController extends Controller
             return redirect()->route('admin.coins.index');
         }
         $id = $coin->id;
-        $addresses = Address::where('coin_id', $id)->get();
+        $addresses = Address::where('coin_id', $id)->where('user_id', Auth::user()->id)->get();
         //mettere indirizzi
         return view('admin.coins.show', ['coin' => $coin, 'addresses' => $addresses]);
     }
