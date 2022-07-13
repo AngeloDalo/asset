@@ -2,8 +2,19 @@
 
 @section('content')
     <div class="container">
-        <div class="row row-title-index">
+        <div class="row row-title-index m-2">
             <h1 class="fw-bold">Mie Monete</h1>
+        </div>
+        <div class="d-block d-lg-none m-2">
+            <a class="btn btn-outline-success" href="{{ url('/') }}">
+                Home
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.coins.index') }}">
+                Mie Monete
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.coins.create') }}">
+                Aggiungi Moneta
+            </a>
         </div>
         <!--message delate-->
         <div class="row">
@@ -17,9 +28,9 @@
         </div>
         <div class="row">
             <div class="col">
-                <table class="table border border-danger text-center">
+                <table class="table border border-success text-center">
                     <thead>
-                        <tr class="table-danger">
+                        <tr class="table-success">
                             <th>#</th>
                             <th>Codice</th>
                             <th>Ammontare</th>
