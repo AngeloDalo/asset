@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container border border-danger rounded-3 p-3 mb-4">
+    <div class="container border border-success rounded-3 p-3 mb-4">
         <div class="row">
             @if (session('status'))
                 <div class="alert alert-danger">
@@ -24,6 +24,12 @@
             </a>
             <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
                 Aggiungi Stocks
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.index') }}">
+                Mia Liquidit&agrave;
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
+                Aggiungi Liquidit&agrave;
             </a>
         </div>
 

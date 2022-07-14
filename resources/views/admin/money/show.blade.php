@@ -26,6 +26,12 @@
             <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
                 Aggiungi Stocks
             </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.index') }}">
+                Mia Liquidit&agrave;
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
+                Aggiungi Liquidit&agrave;
+            </a>
         </div>
 
         <div class="row border border-success rounded-3 p-3">
@@ -37,7 +43,7 @@
                 <div class="d-flex flex-column">
                     <h3 class="card-title text-success">{{ $money->nome }}</h3>
                     <span class="mb-2"><span class="fw-bold text-uppercase">Ammontare: </span>
-                        {{ $money->ammontare }}&dollar;;</span>
+                        {{ $money->ammontare }}&dollar;</span>
                 </div>
             </div>
         </div>

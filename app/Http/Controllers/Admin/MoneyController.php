@@ -104,19 +104,12 @@ class MoneyController extends Controller
         $validateData = $request->validate([
             'nome' => 'required|max:255',
             'ammontare' => 'required',
-            'immagine' => 'required',
         ]);
         if ($data['nome'] != $money->nome) {
             $money->nome = $data['nome'];
         }
         if ($data['ammontare'] != $money->ammontare) {
             $money->ammontare = $data['ammontare'];
-        }
-        if (!empty($data['immagine'])) {
-            Storage::delete($money->immagine);
-
-            $img_path = Storage::put('uploads', $data['immagine']);
-            $money->immagine = $img_path;
         }
         $money->update();
         return redirect()->route('admin.money.show', $money->id);

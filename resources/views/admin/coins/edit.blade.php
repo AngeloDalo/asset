@@ -24,6 +24,12 @@
         <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
             Aggiungi Stocks
         </a>
+        <a class="btn btn-outline-success" href="{{ route('admin.money.index') }}">
+            Mia Liquidit&agrave;
+        </a>
+        <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
+            Aggiungi Liquidit&agrave;
+        </a>
     </div>
     <div class="container border border-success rounded-3 p-3 mb-4">
         <div class="row">
@@ -38,24 +44,15 @@
                     @csrf
                     @method('PATCH')
                     <div class="row">
-                        <div class="col-7">
+                        <div class="col-12 col-lg-6">
                             @if (!empty($coin->immagine))
-                                <div class="mb-3">
-                                    <img class="w-20 rounded-3" src="{{ asset('storage/' . $coin->immagine) }}"
+                                <div class="mb-3 w-100">
+                                    <img class="w-75 rounded-3" src="{{ asset('storage/' . $coin->immagine) }}"
                                         alt="{{ $coin->codice }}">
                                 </div>
                             @endif
-                            <div class="mb-3">
-                                <label for="immagine" class="form-label">Immagine</label>
-                                <input class="form-control" type="file" id="immagine" name="immagine">
-                                @error('immagine')
-                                    <div class="alert alert-danger mt-3">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
                         </div>
-                        <div class="col-5">
+                        <div class="col-12 col-lg-6">
                             <div class="mb-3">
                                 <label for="codice" class="form-label text-uppercase fw-bold">Codice</label>
                                 <input type="text" class="form-control" id="codice" name="codice"

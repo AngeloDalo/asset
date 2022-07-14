@@ -103,11 +103,10 @@ class StockController extends Controller
             return redirect()->route('admin.stocks.index');
         }
         $validateData = $request->validate([
-            'codice' => 'required|max:255',
-            'nome' => 'required|max:255',
+            'codice' => 'required',
+            'nome' => 'required',
             'ammontare' => 'required',
             'prezzo_singolo' => 'required',
-            'immagine' => 'required',
         ]);
         if ($data['codice'] != $stock->codice) {
             $stock->codice = $data['codice'];
@@ -120,12 +119,6 @@ class StockController extends Controller
         }
         if ($data['prezzo_singolo'] != $stock->prezzo_singolo) {
             $stock->prezzo_singolo = $data['prezzo_singolo'];
-        }
-        if (!empty($data['immagine'])) {
-            Storage::delete($stock->immagine);
-
-            $img_path = Storage::put('uploads', $data['immagine']);
-            $stock->immagine = $img_path;
         }
         $stock->update();
         return redirect()->route('admin.stocks.show', $stock->id);

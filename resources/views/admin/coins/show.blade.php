@@ -26,6 +26,12 @@
             <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
                 Aggiungi Stocks
             </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.index') }}">
+                Mia Liquidit&agrave;
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
+                Aggiungi Liquidit&agrave;
+            </a>
         </div>
 
         <div class="row border border-success rounded-3 p-3">
@@ -33,7 +39,7 @@
                 <img class="w-50 h-100 rounded-3" src="{{ asset('storage/' . $coin->immagine) }}"
                     alt="{{ $coin->codice }}">
             </div>
-            <div class="col-sm- 12 col-md-12 col-lg-6">
+            <div class="col-sm-12 col-md-12 col-lg-6">
                 <div class="d-flex flex-column">
                     <h3 class="card-title text-success">{{ $coin->codice }}</h3>
                     <span class="mb-2"><span class="fw-bold text-uppercase">Ammontare: </span>

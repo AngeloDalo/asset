@@ -24,6 +24,12 @@
         <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
             Aggiungi Stocks
         </a>
+        <a class="btn btn-outline-success" href="{{ route('admin.money.index') }}">
+            Mia Liquidit&agrave;
+        </a>
+        <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
+            Aggiungi Liquidit&agrave;
+        </a>
     </div>
     <div class="container border border-success rounded-3 p-3 mb-4">
         <div class="row">
@@ -39,26 +45,17 @@
                     @csrf
                     @method('PATCH')
                     <div class="mb-3 mt-3 row">
-                        <div class="col-6">
+                        <div class="col-12 col-lg-6">
                             @if (!empty($address->immagine))
-                                <div class="mb-3">
-                                    <img class="img-fluid w-20 rounded-3"
+                                <div class="mb-3 w-100">
+                                    <img class="img-fluid w-75 rounded-3"
                                         src="{{ asset('storage/' . $address->immagine) }}"
                                         alt="{{ $address->indirizzo }}">
                                 </div>
                             @endif
-                            <div class="mb-3">
-                                <label for="immagine" class="form-label">Immagine</label>
-                                <input class="form-control" type="file" id="immagine" name="immagine">
-                                @error('immagine')
-                                    <div class="alert alert-danger mt-3">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
                         </div>
 
-                        <div class="mb-3 col-6">
+                        <div class="mb-3 col-12 col-lg-6">
                             <div class="mb-3">
                                 <label for="portafoglio" class="form-label text-uppercase fw-bold">Portafoglio</label>
                                 <input type="text" class="form-control" id="portafoglio" name="portafoglio"

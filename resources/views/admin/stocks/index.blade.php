@@ -21,6 +21,12 @@
             <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
                 Aggiungi Stocks
             </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.index') }}">
+                Mia Liquidit&agrave;
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
+                Aggiungi Liquidit&agrave;
+            </a>
         </div>
         <!--message delate-->
         <div class="row">

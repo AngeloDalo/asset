@@ -112,7 +112,6 @@ class CoinController extends Controller
             'ammontare' => 'required',
             'prezzo_singolo' => 'required',
             'apy' => 'required',
-            'immagine' => 'required',
         ]);
         if ($data['codice'] != $coin->codice) {
             $coin->codice = $data['codice'];
@@ -122,12 +121,6 @@ class CoinController extends Controller
         }
         if ($data['apy'] != $coin->apy) {
             $coin->apy = $data['apy'];
-        }
-        if (!empty($data['immagine'])) {
-            Storage::delete($coin->immagine);
-
-            $img_path = Storage::put('uploads', $data['immagine']);
-            $coin->immagine = $img_path;
         }
         $coin->update();
         return redirect()->route('admin.coins.show', $coin->id);

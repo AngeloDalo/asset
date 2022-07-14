@@ -103,18 +103,12 @@ class AddressController extends Controller
         $validateData = $request->validate([
             'portafoglio' => 'required|max:255',
             'indirizzo' => 'required',
-            'immagine' => 'required',
         ]);
         if ($data['portafoglio'] != $address->portafoglio) {
             $address->portafoglio = $data['portafoglio'];
         }
         if ($data['indirizzo'] != $address->indirizzo) {
             $address->indirizzo = $data['indirizzo'];
-        }
-        if (!empty($data['immagine'])) {
-            Storage::delete($address->immagine);
-            $img_path = Storage::put('uploads', $data['immagine']);
-            $address->immagine = $img_path;
         }
         $address->update();
         return redirect()->route('admin.coins.show', $address->coin_id);

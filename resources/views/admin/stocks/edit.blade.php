@@ -24,6 +24,12 @@
         <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
             Aggiungi Stocks
         </a>
+        <a class="btn btn-outline-success" href="{{ route('admin.money.index') }}">
+            Mia Liquidit&agrave;
+        </a>
+        <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
+            Aggiungi Liquidit&agrave;
+        </a>
     </div>
     <div class="container border border-success rounded-3 p-3 mb-4">
         <div class="row">
@@ -38,36 +44,34 @@
                     @csrf
                     @method('PATCH')
                     <div class="row">
-                        <div class="col-7">
+                        <div class="col-12 col-lg-6">
                             @if (!empty($stock->immagine))
-                                <div class="mb-3">
-                                    <img class="w-20 rounded-3" src="{{ asset('storage/' . $stock->immagine) }}"
-                                        alt="{{ $stock->codice }}">
+                                <div class="mb-3 w-100">
+                                    <img class="w-20 rounded-3 w-75" src="{{ asset('storage/' . $stock->immagine) }}"
+                                        alt="{{ $stock->nome }}">
                                 </div>
                             @endif
-                            <div class="mb-3">
-                                <label for="immagine" class="form-label">Immagine</label>
-                                <input class="form-control" type="file" id="immagine" name="immagine">
-                                @error('immagine')
-                                    <div class="alert alert-danger mt-3">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
                         </div>
-                        <div class="col-5">
+                        <div class="col-12 col-lg-6">
                             <div class="mb-3">
                                 <label for="codice" class="form-label text-uppercase fw-bold">Codice</label>
-                                <input type="text" class="form-control" id="codice" name="codice"
-                                    value="{{ $stock->codice }}">
+                                <textarea type="text-area" class="form-control" id="codice" name="codice" row="5">{{ $stock->codice }}</textarea>
                             </div>
-                            {{-- <p id="demo1"></p> --}}
+                            {{-- <p id="demo3"></p> --}}
                             @error('codice')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <div class="mb-3">
+                                <label for="nome" class="form-label text-uppercase fw-bold">Nome</label>
+                                <textarea type="text-area" class="form-control" id="nome" name="nome" row="5">{{ $stock->nome }}</textarea>
+                            </div>
+                            {{-- <p id="demo3"></p> --}}
+                            @error('nome')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
 
                             <div class="mb-3">
-                                <label for="ammontare" class="form-label text-uppercase fw-bold">ammontare</label>
+                                <label for="ammontare" class="form-label text-uppercase fw-bold">Ammontare</label>
                                 <input type="text" class="form-control" id="ammontare" name="ammontare"
                                     value="{{ $stock->ammontare }}">
                             </div>
@@ -78,9 +82,10 @@
 
                             <div class="mb-3">
                                 <label for="prezzo_singolo" class="form-label text-uppercase fw-bold">Prezzo Singolo</label>
-                                <textarea type="text-area" class="form-control" id="prezzo_singolo" name="prezzo_singolo" row="5">{{ $stock->prezzo_singolo }}</textarea>
+                                <input type="text" class="form-control" id="prezzo_singolo" name="prezzo_singolo"
+                                    value="{{ $stock->prezzo_singolo }}">
                             </div>
-                            {{-- <p id="demo3"></p> --}}
+                            {{-- <p id="demo2"></p> --}}
                             @error('prezzo_singolo')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

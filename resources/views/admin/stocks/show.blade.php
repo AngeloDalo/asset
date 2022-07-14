@@ -26,6 +26,12 @@
             <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
                 Aggiungi Stocks
             </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.index') }}">
+                Mia Liquidit&agrave;
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
+                Aggiungi Liquidit&agrave;
+            </a>
         </div>
 
         <div class="row border border-success rounded-3 p-3">
@@ -39,7 +45,7 @@
                     <span class="mb-2"><span class="fw-bold text-uppercase">Nome: </span>
                     {{ $stock->nome }}</span>
                     <span class="mb-2"><span class="fw-bold text-uppercase">Ammontare: </span>
-                        {{ $stock->ammontare }}&dollar;;</span>
+                        {{ $stock->ammontare }}&dollar;</span>
                     <span class="mb-2"><span class="fw-bold text-uppercase">Prezzo Singolo: </span>
                         {{ $stock->prezzo_singolo }}</span>
                 </div>
