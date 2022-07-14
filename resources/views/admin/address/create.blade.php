@@ -9,6 +9,24 @@
                 </div>
             @endif
         </div>
+        <div class="d-block d-lg-none m-2">
+            <a class="btn btn-outline-success" href="{{ url('/') }}">
+                Home
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.coins.index') }}">
+                Mie Monete
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.coins.create') }}">
+                Aggiungi Moneta
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.stocks.index') }}">
+                Mie Stocks
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
+                Aggiungi Stocks
+            </a>
+        </div>
+
         <div class="row">
             <form action="{{ route('admin.address.store') }}" method="post" enctype="multipart/form-data" id="MyForm">
                 @csrf

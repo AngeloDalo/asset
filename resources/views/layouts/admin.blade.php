@@ -26,7 +26,7 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm" style="padding: 0 !important">
+        <nav class="navbar navbar-expand-md navbar-light bg-success shadow-sm w-100" style="padding: 0 !important">
             <div class="container p-2">
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
                     <div class="row mt-2 mb-2 navbar-nav ml-auto w-100 justify-content-between align-items-center ">
@@ -89,6 +89,30 @@
                                 <a href="{{ route('admin.coins.create') }}" class="nav-link text-white">
                                     <i class="bi bi-plus-square" style="color:#03306D"></i>
                                     Aggiungi Moneta
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.stocks.index') }}" class="nav-link text-white">
+                                    <i class="bi bi-plus-square" style="color:#03306D"></i>
+                                    Mie Stocks
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.stocks.create') }}" class="nav-link text-white">
+                                    <i class="bi bi-plus-square" style="color:#03306D"></i>
+                                    Aggiungi Stocks
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.money.index') }}" class="nav-link text-white">
+                                    <i class="bi bi-plus-square" style="color:#03306D"></i>
+                                    Mia Liquidit&agrave;
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.money.create') }}" class="nav-link text-white">
+                                    <i class="bi bi-plus-square" style="color:#03306D"></i>
+                                    Aggiungi Liquidit&agrave;
                                 </a>
                             </li>
                         </ul>

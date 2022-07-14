@@ -27,7 +27,7 @@
             </a>
         </div>
         <div class="row">
-            <form action="{{ route('admin.coins.store') }}" method="post" enctype="multipart/form-data" id="MyForm">
+            <form action="{{ route('admin.money.store') }}" method="post" enctype="multipart/form-data" id="MyForm">
                 @csrf
                 @method('POST')
 
@@ -40,11 +40,11 @@
                 @enderror
 
                 <div class="mb-3">
-                    <label for="codice" class="form-label text-uppercase fw-bold">Codice</label>
-                    <input type="text" class="form-control" id="codice" name="codice" value="{{ old('codice') }}">
+                    <label for="nome" class="form-label text-uppercase fw-bold">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome" value="{{ old('nome') }}">
                 </div>
                 {{-- <p id="demo1"></p> --}}
-                @error('codice')
+                @error('nome')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
@@ -56,25 +56,6 @@
                 @error('ammontare')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
-
-                <div class="mb-3">
-                    <label for="prezzo_singolo" class="form-label text-uppercase fw-bold">Prezzo Singolo</label>
-                    <input type="text" class="form-control" id="prezzo_singolo" name="prezzo_singolo" value="{{ old('prezzo_singolo') }}">
-                </div>
-                {{-- <p id="demo3"></p> --}}
-                @error('prezzo_singolo')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-
-                <div class="mb-3">
-                    <label for="apy" class="form-label text-uppercase fw-bold">Apy</label>
-                    <input type="text" class="form-control" id="apy" name="apy" value="{{ old('apy') }}">
-                </div>
-                {{-- <p id="demo4"></p> --}}
-                @error('apy')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-
 
                 {{-- <button type="button" class="btn btn-danger text-white" onclick="validationForm()" value="Submit form">Save</button> --}}
                 <button type="submit" class="btn btn-success">Salva</button>

@@ -28,21 +28,21 @@
     <div class="container border border-success rounded-3 p-3 mb-4">
         <div class="row">
             <div class="col">
-                <h2 class="text-uppercase"><span class="text-success">Modifica Monete:</span> {{ $coin->codice }}</h2>
+                <h2 class="text-uppercase"><span class="text-success">Modifica Liquidit&agrave;:</span> {{ $money->nome }}</h2>
             </div>
         </div>
         <div class="container-fluid">
             <div class="container">
-                <form action="{{ route('admin.coins.update', $coin->id) }}" method="post" enctype="multipart/form-data"
+                <form action="{{ route('admin.money.update', $money->id) }}" method="post" enctype="multipart/form-data"
                     id="MyForm">
                     @csrf
                     @method('PATCH')
                     <div class="row">
                         <div class="col-7">
-                            @if (!empty($coin->immagine))
+                            @if (!empty($money->immagine))
                                 <div class="mb-3">
-                                    <img class="w-20 rounded-3" src="{{ asset('storage/' . $coin->immagine) }}"
-                                        alt="{{ $coin->codice }}">
+                                    <img class="w-20 rounded-3" src="{{ asset('storage/' . $money->immagine) }}"
+                                        alt="{{ $money->nome }}">
                                 </div>
                             @endif
                             <div class="mb-3">
@@ -56,41 +56,23 @@
                             </div>
                         </div>
                         <div class="col-5">
+
                             <div class="mb-3">
-                                <label for="codice" class="form-label text-uppercase fw-bold">Codice</label>
-                                <input type="text" class="form-control" id="codice" name="codice"
-                                    value="{{ $coin->codice }}">
+                                <label for="nome" class="form-label text-uppercase fw-bold">Nome</label>
+                                <textarea type="text-area" class="form-control" id="nome" name="nome" row="5">{{ $money->nome }}</textarea>
                             </div>
-                            {{-- <p id="demo1"></p> --}}
-                            @error('codice')
+                            {{-- <p id="demo3"></p> --}}
+                            @error('nome')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
 
                             <div class="mb-3">
                                 <label for="ammontare" class="form-label text-uppercase fw-bold">ammontare</label>
                                 <input type="text" class="form-control" id="ammontare" name="ammontare"
-                                    value="{{ $coin->ammontare }}">
+                                    value="{{ $money->ammontare }}">
                             </div>
                             {{-- <p id="demo2"></p> --}}
                             @error('ammontare')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="mb-3">
-                                <label for="prezzo_singolo" class="form-label text-uppercase fw-bold">Prezzo Singolo</label>
-                                <textarea type="text-area" class="form-control" id="prezzo_singolo" name="prezzo_singolo" row="5">{{ $coin->prezzo_singolo }}</textarea>
-                            </div>
-                            {{-- <p id="demo3"></p> --}}
-                            @error('prezzo_singolo')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-
-                            <div class="mb-3">
-                                <label for="apy" class="form-label text-uppercase fw-bold">apy</label>
-                                <textarea type="text-area" class="form-control" id="apy" name="apy" row="5">{{ $coin->apy }}</textarea>
-                            </div>
-                            {{-- <p id="demo4"></p> --}}
-                            @error('apy')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>

@@ -27,6 +27,8 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('home');
         Route::resource('coins', 'CoinController');
         Route::resource('address', 'AddressController');
+        Route::resource('stocks', 'StockController');
+        Route::resource('money', 'MoneyController');
     });
 
 Route::get('{any?}', function ($name = null) {

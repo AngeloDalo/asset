@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row row-title-index m-2">
-            <h1 class="fw-bold">Mie Monete</h1>
+            <h1 class="fw-bold">Mia Liquidit&agrave;</h1>
         </div>
         <div class="d-block d-lg-none m-2">
             <a class="btn btn-outline-success" href="{{ url('/') }}">
@@ -39,14 +39,8 @@
                         <thead>
                             <tr class="table-success">
                                 <th scope="col">#</th>
-                                <th scope="col">Codice</th>
+                                <th scope="col">Nome</th>
                                 <th scope="col">Ammontare</th>
-                                <th scope="col">Prezzo Singolo</th>
-                                <th scope="col">Totale</th>
-                                <th scope="col">Apy</th>
-                                <th scope="col">Guadagno G</th>
-                                <th scope="col">Guadagno M</th>
-                                <th scope="col">Guadagno A</th>
                                 <th scope="col">%</th>
                                 <th scope="col">Vedi</th>
                                 <th scope="col">Modifica</th>
@@ -54,37 +48,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($coins as $coin)
+                            @foreach ($money as $s_money)
                                 <tr>
                                     <th scope="row"><img class="immagine-index"
-                                            src="{{ asset('storage/' . $coin->immagine) }}" alt="{{ $coin->codice }}">
+                                            src="{{ asset('storage/' . $s_money->immagine) }}" alt="{{ $s_money->nome }}">
                                     </th>
-                                    <td>{{ $coin->codice }}</td>
-                                    <td>{{ $coin->ammontare }}</td>
-                                    <td>{{ $coin->prezzo_singolo }}&dollar;</td>
-                                    <?php
-                                    $totale = $coin->ammontare * $coin->prezzo_singolo;
-                                    echo '<td>' . $totale . '$</td>';
-                                    ?>
-                                    <td>{{ $coin->apy }}%</td>
-                                    <?php
-                                    $totale = $coin->ammontare * $coin->prezzo_singolo;
-                                    $guadagno_annuale = ($totale / 100) * $coin->apy;
-                                    $guadagno_mensile = $guadagno_annuale / 12;
-                                    $guadagno_giornaliero = $guadagno_annuale / 365;
-                                    echo '<td>' . round($guadagno_giornaliero, 2) . "$</td>";
-                                    echo '<td>' . round($guadagno_mensile, 2) . "$</td>";
-                                    echo '<td>' . round($guadagno_annuale, 2) . "$</td>";
-                                    ?>
+                                    <td>{{ $s_money->nome }}</td>
+                                    <td>{{ $s_money->ammontare }}</td>
                                     <td>TBA</td>
                                     <td><a class="btn btn-success text-white"
-                                            href="{{ route('admin.coins.show', $coin->id) }}">Vedi</a></td>
+                                            href="{{ route('admin.money.show', $s_money->id) }}">Vedi</a></td>
                                     <td>
                                         <a class="btn btn-success text-white"
-                                            href="{{ route('admin.coins.edit', $coin->id) }}">Modifica</a>
+                                            href="{{ route('admin.money.edit', $s_money->id) }}">Modifica</a>
                                     </td>
                                     <td>
-                                        <form action="{{ route('admin.coins.destroy', $coin) }}" method="post">
+                                        <form action="{{ route('admin.money.destroy', $s_money) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <input class="btn btn-danger text-white" type="submit" value="Elimina">
