@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
                     <div class="row mt-2 mb-2 navbar-nav ml-auto w-100 justify-content-between align-items-center ">
                         <div class="col-6 col-lg-9">
-                            <a class="navbar-brand" href="{{ url('/') }}">
+                            <a class="navbar-brand" href="{{ url('/coin') }}">
                                 {{-- <img style="width: 60px" src="{{ URL('img/logoBoolBnb.png') }}" alt=""> --}}
                                 logo
                             </a>
@@ -41,7 +41,7 @@
                                 {{ Auth::user()->email }}
                             </a>
                             <div>
-                                <a class="btn btn-light" href="{{ url('/') }}">
+                                <a class="btn btn-light" href="{{ url('/coin') }}">
                                     Home
                                 </a>
                                 <a class="btn btn-light" href="{{ route('logout') }}"
@@ -64,7 +64,7 @@
             <div class="row">
                 <div class="d-none d-lg-block col-lg-3 h-100">
                     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height:80vh;">
-                        <a href="/"
+                        <a href="/coin"
                             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                             <svg class="bi me-2" width="40" height="32">
                                 <use xlink:href="#bootstrap"></use>
@@ -74,7 +74,7 @@
                         <hr>
                         <ul class="nav nav-pills flex-column mb-auto">
                             <li class="nav-item">
-                                <a href="{{ url('/') }}" class="nav-link text-white" aria-current="page">
+                                <a href="{{ url('/coin') }}" class="nav-link text-white" aria-current="page">
                                     <i class="bi bi-house" style="color:#03306D"></i>
                                     Home
                                 </a>

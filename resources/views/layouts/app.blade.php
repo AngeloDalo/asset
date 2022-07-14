@@ -31,7 +31,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <div class="col-6 col-lg-9">
-                                <a class="navbar-brand" href="{{ url('/') }}">
+                                <a class="navbar-brand" href="{{ url('/coin') }}">
                                     {{-- <img style="width: 60px" src="{{ URL('img/logoBoolBnb.png') }}" alt=""> --}}
                                     logo
                                 </a>
@@ -44,7 +44,7 @@
                             </div>
                         @else
                             <div class="col-6 col-lg-9">
-                                <a class="navbar-brand" href="{{ url('/') }}">
+                                <a class="navbar-brand" href="{{ url('/coin') }}">
                                     {{-- <img style="width: 60px" src="{{ URL('img/logoBoolBnb.png') }}" alt=""> --}}
                                     logo
                                 </a>
