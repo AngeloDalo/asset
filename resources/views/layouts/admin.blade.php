@@ -79,6 +79,12 @@
                                     Home
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.summary.index') }}" class="nav-link text-white">
+                                    <i class="bi bi-house" style="color:#03306D"></i>
+                                    Riassunto
+                                </a>
+                            </li>
                             <li>
                                 <a href="{{ route('admin.coins.index') }}" class="nav-link text-white">
                                     <i class="bi bi-grid" style="color:#03306D"></i>

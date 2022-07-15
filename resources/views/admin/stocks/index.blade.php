@@ -3,7 +3,19 @@
 @section('content')
     <div class="container">
         <div class="row row-title-index m-2">
-            <h1 class="fw-bold">Mie Stocks</h1>
+            <h1 class="fw-bold">Mie Stocks:
+                <?php
+                global $totale_stocks;
+                ?>
+                @foreach ($stocks as $stock)
+                    <?php
+                    $totale_stocks += ($stock->ammontare * $stock->prezzo_singolo);
+                    ?>
+                @endforeach
+                <?php
+                echo ' ' . $totale_stocks . '$';
+                ?>
+                </h1>
         </div>
         <div class="d-block d-lg-none m-2">
             <a class="btn btn-outline-success" href="{{ url('/') }}">

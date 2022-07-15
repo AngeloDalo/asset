@@ -29,6 +29,7 @@ Route::middleware('auth')
         Route::resource('address', 'AddressController');
         Route::resource('stocks', 'StockController');
         Route::resource('money', 'MoneyController');
+        Route::resource('summary', 'SummaryController');
     });
 
 Route::get('{any?}', function ($name = null) {

@@ -3,7 +3,19 @@
 @section('content')
     <div class="container">
         <div class="row row-title-index m-2">
-            <h1 class="fw-bold">Mia Liquidit&agrave;</h1>
+            <h1 class="fw-bold">Mia Liquidit&agrave;
+                <?php
+                global $totale_liq;
+                ?>
+                @foreach ($money as $s_money)
+                    <?php
+                    $totale_liq += ($s_money->ammontare);
+                    ?>
+                @endforeach
+                <?php
+                echo ' ' . $totale_liq . '$';
+                ?>
+                </h1>
         </div>
         <div class="d-block d-lg-none m-2">
             <a class="btn btn-outline-success" href="{{ url('/') }}">
