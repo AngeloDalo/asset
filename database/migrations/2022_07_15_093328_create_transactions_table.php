@@ -15,6 +15,12 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->date("data");
+            $table->float('ammontare', 10, 3);
+            $table->string('nome');
+            $table->float('totale', 13, 8);
             $table->timestamps();
         });
     }

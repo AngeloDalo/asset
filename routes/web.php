@@ -30,6 +30,7 @@ Route::middleware('auth')
         Route::resource('stocks', 'StockController');
         Route::resource('money', 'MoneyController');
         Route::resource('summary', 'SummaryController');
+        Route::resource('transactions', 'TransactionController');
     });
 
 Route::get('{any?}', function ($name = null) {

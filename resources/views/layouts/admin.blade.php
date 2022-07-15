@@ -104,6 +104,18 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ route('admin.transactions.index') }}" class="nav-link text-white">
+                                    <i class="bi bi-plus-square" style="color:#03306D"></i>
+                                    Mie Transazioni Stocks
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.transactions.create') }}" class="nav-link text-white">
+                                    <i class="bi bi-plus-square" style="color:#03306D"></i>
+                                    Aggiungi Transazione Stocks
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ route('admin.stocks.create') }}" class="nav-link text-white">
                                     <i class="bi bi-plus-square" style="color:#03306D"></i>
                                     Aggiungi Stocks

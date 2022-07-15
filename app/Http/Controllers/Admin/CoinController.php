@@ -119,6 +119,9 @@ class CoinController extends Controller
         if ($data['ammontare'] != $coin->ammontare) {
             $coin->ammontare = $data['ammontare'];
         }
+        if ($data['prezzo_singolo'] != $coin->prezzo_singolo) {
+            $coin->prezzo_singolo = $data['prezzo_singolo'];
+        }
         if ($data['apy'] != $coin->apy) {
             $coin->apy = $data['apy'];
         }
