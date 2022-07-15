@@ -2,6 +2,38 @@
 
 @section('content')
     <div class="container">
+        <div class="d-block d-lg-none m-2">
+            <a class="btn btn-outline-success" href="{{ url('/') }}">
+                Home
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.summary.index') }}">
+                Riassunto
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.coins.index') }}">
+                Mie Monete
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.coins.create') }}">
+                Aggiungi Moneta
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.stocks.index') }}">
+                Mie Stocks
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
+                Aggiungi Stocks
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.transactions.index') }}">
+                Mie Transazioni Stocks
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.transactions.create') }}">
+                Aggiungi Transazione Stocks
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.index') }}">
+                Mia Liquidit&agrave;
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
+                Aggiungi Liquidit&agrave;
+            </a>
+        </div>
         <div class="row row-title-index m-2">
             <h1 class="fw-bold">Miei Asset:
                 <?php
@@ -27,29 +59,6 @@
                 ?>
             </h1>
             </h1>
-        </div>
-        <div class="d-block d-lg-none m-2">
-            <a class="btn btn-outline-success" href="{{ url('/') }}">
-                Home
-            </a>
-            <a class="btn btn-outline-success" href="{{ route('admin.coins.index') }}">
-                Mie Monete
-            </a>
-            <a class="btn btn-outline-success" href="{{ route('admin.coins.create') }}">
-                Aggiungi Moneta
-            </a>
-            <a class="btn btn-outline-success" href="{{ route('admin.stocks.index') }}">
-                Mie Stocks
-            </a>
-            <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
-                Aggiungi Stocks
-            </a>
-            <a class="btn btn-outline-success" href="{{ route('admin.money.index') }}">
-                Mia Liquidit&agrave;
-            </a>
-            <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
-                Aggiungi Liquidit&agrave;
-            </a>
         </div>
         <!--message delate-->
         <div class="row">

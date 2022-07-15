@@ -10,6 +10,9 @@
         <a class="btn btn-outline-success" href="{{ url('/') }}">
             Home
         </a>
+        <a class="btn btn-outline-success" href="{{ route('admin.summary.index') }}">
+            Riassunto
+        </a>
         <a class="btn btn-outline-success" href="{{ route('admin.coins.index') }}">
             Mie Monete
         </a>
@@ -21,6 +24,12 @@
         </a>
         <a class="btn btn-outline-success" href="{{ route('admin.stocks.create') }}">
             Aggiungi Stocks
+        </a>
+        <a class="btn btn-outline-success" href="{{ route('admin.transactions.index') }}">
+            Mie Transazioni Stocks
+        </a>
+        <a class="btn btn-outline-success" href="{{ route('admin.transactions.create') }}">
+            Aggiungi Transazione Stocks
         </a>
         <a class="btn btn-outline-success" href="{{ route('admin.money.index') }}">
             Mia Liquidit&agrave;
