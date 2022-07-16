@@ -63,7 +63,7 @@
         <main>
             <div class="row">
                 <div class="d-none d-lg-block col-lg-3 h-100">
-                    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height:80vh;">
+                    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height:100vh;">
                         <a href="/coin"
                             class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                             <svg class="bi me-2" width="40" height="32">
@@ -131,6 +131,18 @@
                                 <a href="{{ route('admin.money.create') }}" class="nav-link text-white">
                                     <i class="bi bi-plus-square" style="color:#03306D"></i>
                                     Aggiungi Liquidit&agrave;
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.trends.index') }}" class="nav-link text-white">
+                                    <i class="bi bi-plus-square" style="color:#03306D"></i>
+                                    Trend
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('admin.trends.create') }}" class="nav-link text-white">
+                                    <i class="bi bi-plus-square" style="color:#03306D"></i>
+                                    Aggiungi Trend
                                 </a>
                             </li>
                         </ul>

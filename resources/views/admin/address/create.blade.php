@@ -40,6 +40,12 @@
             <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
                 Aggiungi Liquidit&agrave;
             </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.trends.index') }}">
+                Trend
+            </a>
+            <a class="btn btn-outline-success" href="{{ route('admin.trends.create') }}">
+                Aggiungi Trend
+            </a>
         </div>
 
         <div class="row">

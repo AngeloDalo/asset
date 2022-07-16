@@ -30,6 +30,7 @@ Route::middleware('auth')
         Route::resource('stocks', 'StockController');
         Route::resource('money', 'MoneyController');
         Route::resource('summary', 'SummaryController');
+        Route::resource('trends', 'TrendController');
         Route::resource('transactions', 'TransactionController');
     });
 

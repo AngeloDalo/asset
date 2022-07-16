@@ -3,19 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row row-title-index m-2">
-            <h1 class="fw-bold">Mie Monete:
-            <?php
-            global $totale_crypto;
-            ?>
-            @foreach ($coins as $coin)
-                <?php
-                $totale_crypto += ($coin->ammontare * $coin->prezzo_singolo);
-                ?>
-            @endforeach
-            <?php
-            echo ' ' . $totale_crypto . '$';
-            ?>
-            </h1>
+            <h1 class="fw-bold">Trend: </h1>
         </div>
     </div>
     <div class="d-block d-lg-none m-2">
@@ -49,12 +37,6 @@
         <a class="btn btn-outline-success" href="{{ route('admin.money.create') }}">
             Aggiungi Liquidit&agrave;
         </a>
-        <a class="btn btn-outline-success" href="{{ route('admin.trends.index') }}">
-            Trend
-        </a>
-        <a class="btn btn-outline-success" href="{{ route('admin.trends.create') }}">
-            Aggiungi Trend
-        </a>
     </div>
     <!--message delate-->
     <div class="row">
@@ -73,52 +55,26 @@
                     <thead>
                         <tr class="table-success">
                             <th scope="col">#</th>
-                            <th scope="col">Codice</th>
+                            <th scope="col">Data</th>
                             <th scope="col">Ammontare</th>
-                            <th scope="col">Prezzo Singolo</th>
-                            <th scope="col">Totale</th>
-                            <th scope="col">Apy</th>
-                            <th scope="col">Guadagno G</th>
-                            <th scope="col">Guadagno M</th>
-                            <th scope="col">Guadagno A</th>
-                            <th scope="col">%</th>
-                            <th scope="col">Vedi</th>
                             <th scope="col">Modifica</th>
                             <th scope="col">Elimina</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($coins as $coin)
+                        @foreach ($trends as $trend)
                             <tr>
-                                <th scope="row"><img class="immagine-index"
-                                        src="{{ asset('storage/' . $coin->immagine) }}" alt="{{ $coin->codice }}">
+                                <th scope="row">
+                                    {{ $trend->id }}
                                 </th>
-                                <td>{{ $coin->codice }}</td>
-                                <td>{{ $coin->ammontare }}</td>
-                                <td>{{ $coin->prezzo_singolo }}&dollar;</td>
-                                <?php
-                                $totale = $coin->ammontare * $coin->prezzo_singolo;
-                                echo '<td>' . $totale . '$</td>';
-                                ?>
-                                <td>{{ $coin->apy }}%</td>
-                                <?php
-                                $totale = $coin->ammontare * $coin->prezzo_singolo;
-                                $guadagno_annuale = ($totale / 100) * $coin->apy;
-                                $guadagno_mensile = $guadagno_annuale / 12;
-                                $guadagno_giornaliero = $guadagno_annuale / 365;
-                                echo '<td>' . round($guadagno_giornaliero, 2) . "$</td>";
-                                echo '<td>' . round($guadagno_mensile, 2) . "$</td>";
-                                echo '<td>' . round($guadagno_annuale, 2) . "$</td>";
-                                ?>
-                                <td>TBA</td>
-                                <td><a class="btn btn-success text-white"
-                                        href="{{ route('admin.coins.show', $coin->id) }}">Vedi</a></td>
+                                <td>{{ $trend->data}}</td>
+                                <td>{{ $trend->ammontare }}&euro;</td>
                                 <td>
                                     <a class="btn btn-success text-white"
-                                        href="{{ route('admin.coins.edit', $coin->id) }}">Modifica</a>
+                                        href="{{ route('admin.trends.edit', $trend->id) }}">Modifica</a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('admin.coins.destroy', $coin) }}" method="post">
+                                    <form action="{{ route('admin.trends.destroy', $trend) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <input class="btn btn-danger text-white" type="submit" value="Elimina">
