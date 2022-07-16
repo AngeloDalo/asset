@@ -16,7 +16,7 @@
             Riassunto
         </a>
         <a class="btn btn-outline-success" href="{{ route('admin.coins.index') }}">
-            Mie Monete
+            Mie Crypto
         </a>
         <a class="btn btn-outline-success" href="{{ route('admin.coins.create') }}">
             Aggiungi Moneta

@@ -16,7 +16,7 @@
             Riassunto
         </a>
         <a class="btn btn-outline-success" href="{{ route('admin.coins.index') }}">
-            Mie Monete
+            Mie Crypto
         </a>
         <a class="btn btn-outline-success" href="{{ route('admin.coins.create') }}">
             Aggiungi Moneta
@@ -49,7 +49,7 @@
     <div class="container border border-success rounded-3 p-3 mb-4">
         <div class="row">
             <div class="col">
-                <h2 class="text-uppercase"><span class="text-success">Modifica Monete:</span> {{ $coin->codice }}</h2>
+                <h2 class="text-uppercase"><span class="text-success">Modifica Crypto:</span> {{ $coin->codice }}</h2>
             </div>
         </div>
         <div class="container-fluid">

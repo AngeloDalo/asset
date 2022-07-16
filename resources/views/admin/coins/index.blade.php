@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row row-title-index m-2">
-            <h1 class="fw-bold">Mie Monete:
+            <h1 class="fw-bold">Mie Crypto:
             <?php
             global $totale_crypto;
             ?>
@@ -26,7 +26,7 @@
             Riassunto
         </a>
         <a class="btn btn-outline-success" href="{{ route('admin.coins.index') }}">
-            Mie Monete
+            Mie Crypto
         </a>
         <a class="btn btn-outline-success" href="{{ route('admin.coins.create') }}">
             Aggiungi Moneta

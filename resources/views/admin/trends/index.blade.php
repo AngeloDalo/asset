@@ -14,10 +14,10 @@
             Riassunto
         </a>
         <a class="btn btn-outline-success" href="{{ route('admin.coins.index') }}">
-            Mie Monete
+            Mie Crypto
         </a>
         <a class="btn btn-outline-success" href="{{ route('admin.coins.create') }}">
-            Aggiungi Moneta
+            Aggiungi Crypto
         </a>
         <a class="btn btn-outline-success" href="{{ route('admin.stocks.index') }}">
             Mie Stocks
@@ -88,4 +88,5 @@
         </div>
     </div>
     </div>
+
 @endsection

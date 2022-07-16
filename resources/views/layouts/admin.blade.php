@@ -88,7 +88,7 @@
                             <li>
                                 <a href="{{ route('admin.coins.index') }}" class="nav-link text-white">
                                     <i class="bi bi-grid" style="color:#03306D"></i>
-                                    Mie Monete
+                                    Mie Crypto
                                 </a>
                             </li>
                             <li>
